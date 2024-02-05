@@ -40,8 +40,8 @@ body {
 	background-position: left top!important;
 }
 /* Darkness 1 Background Image */
-.dialog_wrapper, #tab_bar, .panel, .list, .selected:not(:has(label)), .dialog, .dialog_content, .dialog_bar.button_bar, .list>li>div, #entity_wizard_egg_color_preview, .project_tab,
-#cem_template_page, #reset_shape {
+.dialog_wrapper, #tab_bar, .panel, .list, .selected:not(:has(label), .uv_face), .dialog, .dialog_content, .dialog_bar.button_bar, .list>li>div, #entity_wizard_egg_color_preview, .project_tab,
+#cem_template_page, #reset_shape, #plugin_list>li {
 	background-image: var(--bgDarkness1)!important;
 	background-clip: border-box!important;
 	background-origin: padding-box!important;
@@ -51,8 +51,8 @@ body {
 	background-position: left top!important;
 }
 /* Darkness 2 Background Image */
-input[type=text]:not(.cube_name):hover, input[type=password]:hover, .selected:not(:has(label)):hover, .theme:hover, li:not(:has(label)):not(.format_category):hover, div.nslide:hover,
-.dialog_message_box_command:hover, .list>li>div:hover, .thumbnail:hover, .sp-light:hover {
+input[type=text]:not(.cube_name):hover, input[type=password]:hover, .selected:not(:has(label), .uv_face):hover, .theme:hover, li:not(:has(label)):not(.format_category):hover, div.nslide:hover,
+.dialog_message_box_command:hover, .list>li>div:hover, .thumbnail:hover, .sp-light:hover, .outliner_object.selected {
 	background-image: var(--bgDarkness2)!important;
 	background-clip: border-box!important;
 	background-origin: padding-box!important;
@@ -107,22 +107,29 @@ div.start_screen_left, div.start_screen_right, div.start_screen_right > ul {
 	max-height: 90%!important;
 }
 
+/* UV Color Changes */
+#uv_frame {
+	--color-uv-hover: var(--border-secondary);
+	--color-uv-background: rgba(0, 0, 0, 0.25);
+	--color-uv-background-hover: rgba(0, 0, 0, 0.5);
+}
+
 /* Misc */
 button, button:hover, .recent_project_name, li:not(.format_category), .tooltip {
 	color: #fff!important;
 }
 .theme:not(.selected), bb-select, .tooltip, input[type=text]:not(.cube_name), input[type=password], .focusable_input, div.nslide, span.key, .thumbnail, .sp-light, .icon_picker_left,
-#bedrock_entity_list {
+#bedrock_entity_list, .outliner_object.selected, #plugin_list>li, .pagination_numbers>.selected {
 	border: 1px solid var(--border-primary)!important;
 }
 .theme:not(.selected):hover, bb-select:hover, input[type=text]:not(.cube_name):hover, input[type=password]:hover, .list>li:not(.texture)>div:hover, .texture:hover,
-.focusable_input:hover, div.nslide:hover, span.key:hover, .thumbnail:hover, .sp-light:hover, #bedrock_entity_list:hover {
+.focusable_input:hover, div.nslide:hover, span.key:hover, .thumbnail:hover, .sp-light:hover, #bedrock_entity_list:hover, #plugin_list>li:hover, .pagination_numbers>.selected:hover {
 	border: 1px solid var(--border-secondary)!important;
 }
-.theme .selected {
+.theme .selected:not(.uv_face) {
 	border: 1px solid var(--color-accent)!important;
 }
-input[type=text], input[type=password], .theme, .contextMenu, bb-select, .cube, .texture, .tooltip, .focusable_input, div.nslide, .thumbnail, #bedrock_entity_list {
+input[type=text], input[type=password], .theme, .contextMenu, bb-select, .cube, .texture, .tooltip, .focusable_input, div.nslide, .thumbnail, #bedrock_entity_list, #plugin_list>li {
 	border-radius: 4px!important;
 }
 .fa-star::before {
@@ -151,11 +158,11 @@ input[type=text], input[type=password], .theme, .contextMenu, bb-select, .cube, 
 	--toolbar-height: 34px!important;
 }
 /* Bounce Animation */
-li:not(:has(label)):not(.format_category):hover, .tool:has(.icon, i):not(:has(.nslide)):hover {
+li:not(:has(label)):not(:has(.notranslate):not(.format_category):hover, .tool:has(.icon, i):not(:has(.nslide)):hover {
 	-webkit-animation: UserModalButtons 0.5s normal ease;
 					animation: UserModalButtons 0.5s normal ease;
 }
-li:not(:has(label)):not(.format_category):hover, .tool:has(.icon, i):not(:has(.nslide)):hover {
+li:not(:has(label)):not(:has(.notranslate)):not(.format_category):hover, .tool:has(.icon, i):not(:has(.nslide)):hover {
 	transition: 0.2s;
 }
 @keyframes UserModalButtons {
@@ -169,7 +176,6 @@ li:not(:has(label)):not(.format_category):hover, .tool:has(.icon, i):not(:has(.n
 		transform: translateY(0px);
 	}
 }
-
 
 /* ---------- Buttons ---------- */
 /* Blue */
@@ -209,18 +215,15 @@ li:not(:has(label)):not(.format_category):hover, .tool:has(.icon, i):not(:has(.n
 	box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.5);
 	overflow: visible;
 }
-
 #start_files {
 	box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.3);
 }
-
 #splash_screen {
 	background: linear-gradient(0deg, rgba(50, 50, 50, 0.7), rgba(0, 0, 0, 0.3)), url(./assets/splash_art.png?43);
 	filter: opacity(100%);
 	background-position: center;
 	background-size: cover;
 }
-
 #start_screen {
 	padding: 0px;
 }
